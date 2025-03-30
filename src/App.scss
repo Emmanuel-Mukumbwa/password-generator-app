@@ -1,161 +1,181 @@
 // App.scss
 
 .app {
-    font-family: 'Poppins', sans-serif;
-    background: #f5f5f5;
-    padding: 20px;
-    color: #333;
-    min-height: 100vh;
-  
-    .generator-container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      margin-bottom: 100px; // to allow space for floating buttons on mobile
-    }
-  
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-  
-    .password-display {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f5f5;
+  padding: 20px;
+  color: #333;
+  min-height: 100vh;
+
+  .generator-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px; // to allow space for floating buttons on mobile
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .password-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    .password-field {
+      flex: 1;
+      font-size: 1.2rem;
+      padding: 10px;
+      background: #eaeaea;
+      border-radius: 5px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 15px;
-      .password-field {
-        flex: 1;
+      word-break: break-all; // Prevents long passwords from expanding the container
+      overflow-wrap: break-word; // Fallback for some browsers
+
+      button.visibility-btn {
+        background: none;
+        border: none;
         font-size: 1.2rem;
-        padding: 10px;
-        background: #eaeaea;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        button.visibility-btn {
-          background: none;
-          border: none;
-          font-size: 1.2rem;
-          cursor: pointer;
-        }
-      }
-      button.copy-btn {
-        margin-left: 10px;
-        padding: 10px 15px;
-        background: #007bff;
-        border: none;
-        color: #fff;
-        border-radius: 5px;
         cursor: pointer;
-        transition: background 0.3s;
-        &:hover {
-          background: #0056b3;
-        }
       }
     }
-  
-    .copied-indicator {
-      text-align: center;
-      color: #28a745;
-      margin-bottom: 10px;
-    }
-  
-    .strength-container {
-      margin-bottom: 20px;
-      // Example gradient border to highlight the strength meter
-      padding: 2px;
-      border-radius: 5px;
-      background: linear-gradient(90deg, #ff416c, #ff4b2b);
-      display: inline-block;
-  
-      // Assuming StrengthMeter renders a bar, add inner padding to see the effect
-      > * {
-        display: block;
-        padding: 5px;
-        border-radius: 5px;
-      }
-    }
-  
-    .controls {
-      margin-top: 20px;
-      .length-control {
-        margin-bottom: 20px;
-        label {
-          display: block;
-          margin-bottom: 5px;
-        }
-        input[type='range'] {
-          width: 100%;
-        }
-      }
-      .options-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        margin-bottom: 20px;
-        label {
-          display: flex;
-          align-items: center;
-          input {
-            margin-right: 5px;
-          }
-        }
-      }
-      .generate-btn {
-        width: 100%;
-        padding: 12px;
-        font-size: 1rem;
-        background: linear-gradient(45deg, #6a11cb, #2575fc);
-        border: none;
-        color: #fff;
-        border-radius: 5px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.3s;
-        &:hover {
-          background: linear-gradient(45deg, #5a0fb7, #1e64d2);
-        }
-        svg {
-          margin-right: 8px;
-        }
-      }
-    }
-  
-    // Floating modal trigger buttons
-    .about-developer-btn,
-    .user-manual-btn {
-      position: fixed;
-      bottom: 20px;
-      padding: 12px 20px;
+
+    button.copy-btn {
+      margin-left: 10px;
+      padding: 10px 15px;
+      background: #007bff;
       border: none;
       color: #fff;
-      border-radius: 50px;
+      border-radius: 5px;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: background 0.3s;
-      z-index: 1000;
-    }
-  
-    .about-developer-btn {
-      right: 20px;
-      background: #28a745;
       &:hover {
-        background: #218838;
-      }
-    }
-  
-    .user-manual-btn {
-      right: 180px; // Positioned next to the About button
-      background: #17a2b8;
-      &:hover {
-        background: #138496;
+        background: #0056b3;
       }
     }
   }
-  
+
+  .copied-indicator {
+    text-align: center;
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+
+  .strength-container {
+    margin-bottom: 20px;
+    // Example gradient border to highlight the strength meter
+    padding: 2px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    display: inline-block;
+
+    // Assuming StrengthMeter renders a bar, add inner padding to see the effect
+    > * {
+      display: block;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
+
+  .controls {
+    margin-top: 20px;
+
+    .length-control {
+      margin-bottom: 20px;
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type='range'] {
+        width: 100%;
+      }
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+      label {
+        display: flex;
+        align-items: center;
+        input {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .generate-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+      &:hover {
+        background: linear-gradient(45deg, #5a0fb7, #1e64d2);
+      }
+      svg {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  // Floating modal trigger buttons
+  .about-developer-btn,
+  .user-manual-btn {
+    position: fixed;
+    bottom: 20px;
+    padding: 12px 20px;
+    border: none;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+    z-index: 1000;
+  }
+
+  .about-developer-btn {
+    right: 20px;
+    background: #28a745;
+    &:hover {
+      background: #218838;
+    }
+  }
+
+  .user-manual-btn {
+    right: 180px; // Positioned next to the About button
+    background: #17a2b8;
+    &:hover {
+      background: #138496;
+    }
+  }
+
+  // Responsive adjustments for mobile screens
+  @media (max-width: 576px) {
+    .about-developer-btn,
+    .user-manual-btn {
+      right: 10px; // Keep buttons closer to the edge on small screens
+      padding: 10px 16px;
+    }
+
+    .user-manual-btn {
+      bottom: 80px; // Stagger the buttons vertically on mobile if needed
+    }
+  }
+}
