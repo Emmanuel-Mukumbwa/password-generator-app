@@ -1,8 +1,14 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('generates password with default settings', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const passwordDisplay = screen.getByTestId('password-display');
+  expect(passwordDisplay.textContent.length).toBeGreaterThan(0);
+});
+
+test('strength meter updates with password changes', () => {
+  render(<App />);
+  const strengthIndicator = screen.getByTestId('strength-meter');
+  expect(strengthIndicator.textContent).toMatch(/Weak|Strong/);
 });
